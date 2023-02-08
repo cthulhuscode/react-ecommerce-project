@@ -9,5 +9,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Echo the message
-        run: echo "Hola xd"
+        run: | 
+          echo "Hola xd"
       
