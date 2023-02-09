@@ -75,6 +75,15 @@ jobs:
     runs-on: ubuntu-22.04
     steps:    
       - name: Deploy to Netlify
-        if: ${{ github.event_name == 'push' }}
-        run: echo "Deploying to Netlify..."
-
+        if: ${{ github.event_name == 'push' }}        
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist     
+      - uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=dist --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
