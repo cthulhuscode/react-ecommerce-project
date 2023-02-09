@@ -3,3 +3,19 @@
 	margin: 0;
 	padding: 0;
 }
+
+:root{
+	--color-primary: #A18A68;
+	--color-white: #FFFFFF;
+	--color-black: #000000;
+
+	--color-dark-gray: #707070;
+	--color-gray: #D8D8D8;
+	--color-gray: #EFEFEF;
+
+	--color-error: #D82700;
+}
+
+body{
+	font-family: "DM Sans";
+}
