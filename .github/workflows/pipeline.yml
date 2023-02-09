@@ -55,6 +55,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Testing
+        run: npm test
         
   deploy:
     runs-on: ubuntu-22.04
