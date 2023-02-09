@@ -1,3 +1,7 @@
+[![Production Pipeline](https://github.com/cthulhuscode/react-ecommerce-project/actions/workflows/production.yml/badge.svg)](https://github.com/cthulhuscode/react-ecommerce-project/actions/workflows/production.yml)
+
+<br>
+
 [![Deployment Pipeline](https://github.com/cthulhuscode/react-ecommerce-project/actions/workflows/pipeline.yml/badge.svg)](https://github.com/cthulhuscode/react-ecommerce-project/actions/workflows/pipeline.yml)
 
 # Ecommerce Project
