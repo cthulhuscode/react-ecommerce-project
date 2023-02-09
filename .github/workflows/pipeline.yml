@@ -1,11 +1,11 @@
 name: Deployment Pipeline
 
 on: 
-  push: 
-    branches: [dev]
+  # push: 
+  #   branches: [dev]
   pull_request:
     branches: [main]
-    types: [opened, synchronize]      
+    types: [opened, synchronize, closed]      
 
 jobs: 
 #   avoid_redundancy:
@@ -78,20 +78,21 @@ jobs:
           fetch-depth: 0 
       - run: echo ${GITHUB_REF##*/}
 
-  # deploy:
-  #   needs: [testing]
-  #   runs-on: ubuntu-22.04
-  #   steps:    
-  #     - name: Deploy to Netlify
-  #       if: ${{ github.event_name == 'push' }}        
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: dist
-  #         path: dist     
-  #     - uses: netlify/actions/cli@master
-  #       env:
-  #         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-  #         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-  #       with:
-  #         args: deploy --dir=dist --prod
-  #         secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+  deploy:
+    # needs: [testing]
+    runs-on: ubuntu-22.04  
+    steps:    
+      - name: Deploy to Netlify
+        if: ${{ github.event.pull_request.merged == true }}        
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist     
+      - uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=dist --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+
