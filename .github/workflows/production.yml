@@ -1,35 +1,35 @@
 name: Deployment Pipeline
 
 on: 
-  # push: 
-  #   branches: [dev]
+  push: 
+    branches: [main]
   pull_request:
     branches: [main]
     types: [opened, synchronize, closed]      
 
 jobs: 
-#   avoid_redundancy:
-#     runs-on: ubuntu-22.04
-#     steps:
-#       - name: Cancel previous redundant builds
-#         uses: styfle/cancel-workflow-action@0.9.1
-#         with:
-#           access_token: ${{ github.token }}
+  avoid_redundancy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Cancel previous redundant builds
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
 
-#   lint:
-#     runs-on: ubuntu-22.04
-#     steps:
-#       - uses: actions/checkout@v3
-#         with:
-#           fetch-depth: 0
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: 16
-#           cache: 'npm'
-#       - name: Install dependencies
-#         run: npm ci
-#       - name: Lint      
-#         run: npm run lint        
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint      
+        run: npm run lint        
 
   build:
     runs-on: ubuntu-22.04
@@ -50,25 +50,25 @@ jobs:
           name: dist
           path: dist      
 
-#   testing:
-#     needs: [lint, build]
-#     runs-on: ubuntu-22.04
-#     steps:   
-#       - uses: actions/checkout@v3
-#         with:
-#           fetch-depth: 0
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: 16      
-#           cache: 'npm'
-#       - name: Install dependencies
-#         run: npm ci
-#       - uses: actions/download-artifact@v3
-#         with:
-#           name: dist
-#           path: dist
-#       - name: Testing
-#         run: npm test
+  testing:
+    needs: [lint, build]
+    runs-on: ubuntu-22.04
+    steps:   
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16      
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+      - name: Testing
+        run: npm test
         
   show_branch:
     runs-on: ubuntu-22.04
@@ -79,7 +79,7 @@ jobs:
       - run: echo ${GITHUB_REF##*/}
 
   deploy:
-    needs: [build]
+    needs: [testing]
     runs-on: ubuntu-22.04  
     steps:    
       - name: Deploy to Netlify
@@ -89,6 +89,7 @@ jobs:
           name: dist
           path: dist     
       - uses: netlify/actions/cli@master
+        if: ${{ github.event.pull_request.merged == true }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
