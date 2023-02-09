@@ -1,5 +1,5 @@
 const App = () => {
-	return <div>App</div>;
+	return <div>A new change from dev branch</div>;
 };
 
 export default App;
