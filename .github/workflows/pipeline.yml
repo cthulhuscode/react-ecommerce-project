@@ -79,7 +79,7 @@ jobs:
       - run: echo ${GITHUB_REF##*/}
 
   deploy:
-    # needs: [testing]
+    needs: [build]
     runs-on: ubuntu-22.04  
     steps:    
       - name: Deploy to Netlify
