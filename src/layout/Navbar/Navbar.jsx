@@ -11,6 +11,7 @@ export const Navbar = () => {
         </li>
         <li className="navbar-list__item">
           <img className="navbar-list__icon" src={images.line} alt="buscar" />
+          <h1>Hola mundo xD</h1>
         </li>
         <li className="navbar-list__item">
           <img className="navbar-list__icon" src={images.lupa} alt="buscar" />
