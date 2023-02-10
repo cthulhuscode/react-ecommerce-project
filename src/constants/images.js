@@ -3,6 +3,9 @@ import lupa from "../assets/lupa.png";
 import cart from "../assets/cart.png";
 import account from "../assets/account.png";
 import line from "../assets/line.png";
+import menu from "../assets/menu.svg";
+import close from "../assets/close.svg";
+import logout from "../assets/logout.svg";
 
 export const images = {
 	logo,
@@ -10,4 +13,7 @@ export const images = {
 	line,
 	cart,
 	account,
+	menu,
+	close,
+	logout,
 };
