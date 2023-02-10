@@ -10,8 +10,7 @@ export const Navbar = () => {
           <a className="navbar-list__anchor" href="#">Shop</a>
         </li>
         <li className="navbar-list__item">
-          <img className="navbar-list__icon" src={images.line} alt="buscar" />
-          <h1>Hola mundo xD</h1>
+          <img className="navbar-list__icon" src={images.line} alt="buscar" />          
         </li>
         <li className="navbar-list__item">
           <img className="navbar-list__icon" src={images.lupa} alt="buscar" />
