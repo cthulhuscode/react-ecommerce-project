@@ -7,11 +7,10 @@ export const Navbar = () => {
       <img className="navbar__logo" src={images.logo} alt="Shoppe" />
       <ul className="navbar-list">
         <li className="navbar-list__item">
-          <a className="navbar-list__anchor" href="#">Shop xD</a>
+          <a className="navbar-list__anchor" href="#">Shop</a>
         </li>
         <li className="navbar-list__item">
-          <img className="navbar-list__icon" src={images.line} alt="buscar" />
-          <h1>Hola mundo xD</h1>
+          <img className="navbar-list__icon" src={images.line} alt="buscar" />          
         </li>
         <li className="navbar-list__item">
           <img className="navbar-list__icon" src={images.lupa} alt="buscar" />
