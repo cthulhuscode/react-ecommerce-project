@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import lupa from "../assets/lupa.png";
 import cart from "../assets/cart.png";
 import account from "../assets/account.png";
