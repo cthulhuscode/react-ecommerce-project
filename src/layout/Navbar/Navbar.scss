@@ -10,6 +10,11 @@
   &__logo{
     width: 158px;
     height: 40px;
+
+    @media screen and (max-width: 680px){
+      width: 99px;
+      height: 36px;
+    }
   }
 
   &-list{
@@ -40,6 +45,11 @@
       vertical-align: middle;
       text-decoration: none;
       color: var(--color-black);
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 27px;      
 
       &:hover{
         border-bottom: 2px solid var(--color-black);
@@ -128,5 +138,5 @@
     @media screen and (min-width: 680px){
       display: none;      
     }
-  }
+  } 
 }
