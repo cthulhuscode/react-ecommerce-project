@@ -1,4 +1,4 @@
-import { ProductCard } from "../../components/ProductCard/ProductCard"
+
 import { Navbar } from "../../layout/Navbar/Navbar"
 import { Categories } from "../../layout/Categories/Categories"
 
@@ -7,7 +7,8 @@ export const Home = () => {
     <div className="home">
       <Navbar />
       <br />
-      <ProductCard />
+      {/* <ProductsList /> */}
+    <h1>Comenten su código gente c:</h1>
     </div>
   )
 }
