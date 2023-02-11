@@ -4,7 +4,7 @@ import axios  from "axios";
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
-
+  //Consimo de una api con axios
   useEffect(() => {
      const fetchItems = async () =>{
       try {

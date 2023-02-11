@@ -6,6 +6,7 @@ export const Home = () => {
   return (
     <div className="home">
       <Navbar />
+      <Categories/>
       <br />
       {/* <ProductsList /> */}
     <h1>Comenten su código gente c:</h1>
