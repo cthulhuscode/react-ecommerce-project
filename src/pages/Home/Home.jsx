@@ -1,4 +1,4 @@
-import { ProductCard } from "../../components/ProductCard/ProductCard"
+
 import { Navbar } from "../../layout/Navbar/Navbar"
 
 export const Home = () => {
@@ -6,7 +6,7 @@ export const Home = () => {
     <div className="home">
       <Navbar />
       <br />
-      <ProductCard />
+      {/* <ProductsList /> */}
     </div>
   )
 }
