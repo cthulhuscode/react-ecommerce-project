@@ -51,9 +51,9 @@
       font-size: 16px;
       line-height: 27px;      
 
-      &:hover{
+      &:hover, &--active{
         border-bottom: 2px solid var(--color-black);
-      }
+      }     
     }
 
     &__icon{
@@ -119,20 +119,25 @@
     
     &__item{
       padding: 10px 16px;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 26px;       
-      cursor: pointer;
-
-      display: flex;
-      align-items: center;
-      vertical-align: middle;
-      gap: 10px;
+      cursor: pointer;  
 
       &:hover{
         background-color: var(--color-light-gray);
       }
+
+      &-link{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 26px;       
+        text-decoration: none;
+        color: var(--color-black);
+
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+        gap: 10px;
+      }      
     }
 
     @media screen and (min-width: 680px){
