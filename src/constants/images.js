@@ -8,6 +8,7 @@ import close from "../assets/close.svg";
 import logout from "../assets/logout.svg";
 import earrings from "../assets/earrings.png";
 import login from "../assets/login.png";
+import addToCart from "../assets/add-to-cart.png";
 
 export const images = {
 	logo,
@@ -20,4 +21,5 @@ export const images = {
 	logout,
 	earrings,
 	login,
+	addToCart,
 };
