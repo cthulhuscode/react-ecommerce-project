@@ -1,12 +1,12 @@
 
-import { Navbar } from "../../layout/Navbar/Navbar"
+// import { Navbar } from "../../layout/Navbar/Navbar"
 
 export const Home = () => {
   return (
     <div className="home">
-      <Navbar />
+      <h1>Home</h1>
       <br />
-      {/* <ProductsList /> */}
+      {/* <ProductsList /> */}          
     </div>
   )
 }
