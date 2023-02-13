@@ -7,8 +7,7 @@ export const Home = () => {
       <h1>Home</h1>
       <Categories/>
       <br />
-      {/* <ProductsList /> */}
-    <h1>Comenten su código gente c:</h1>
+      {/* <ProductsList /> */}    
     </div>
   )
 }
