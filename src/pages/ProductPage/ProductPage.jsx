@@ -14,7 +14,9 @@ export const ProductPage = () => {
     <div className="product-page">
       {! isLoading 
         ? <>
-            <img className="product-page__img" src={product.imageUrl} alt={product.name}/>
+            <div className="product-page__img-box">
+              <img className="product-page__img" src={product.imageUrl} alt={product.name}/>
+            </div>
             <div className="product-page__info">
               <h2 className="product-page__name">{product.name}</h2>
               <h3 className="product-page__price">$ {product.price}</h3>
@@ -30,11 +32,11 @@ export const ProductPage = () => {
                 <span className="product-page__reviews-count">1 customer review</span>
               </div>
 
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum harum animi alias, placeat maiores magni inventore aspernatur quae accusamus nobis ullam beatae hic doloremque esse magnam. Nemo accusamus suscipit sit.</p>
+              <p className="product-page__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum harum animi alias, placeat maiores magni inventore aspernatur quae accusamus nobis ullam beatae hic doloremque esse magnam. Nemo accusamus suscipit sit.</p>
 
               <div className="product-page__add-cart" >
-                <input type="number" name="amount" id="amount" />
-                <button>Add to Ca</button>
+                <input className="product-page__amount" type="number" name="amount" id="amount" />
+                <motion.button className="product-page__btn" whileTap={{scale: 0.9}}>Add to Cart</motion.button>
               </div>
 
               <div className="product-page__icons">
@@ -76,8 +78,8 @@ export const ProductPage = () => {
                 />               
               </div>
 
-              <h4>SKU: <span>{product.item_id}</span></h4>
-              <h4>Categories: <span>{product.title}</span></h4>
+              <h4 className="product-page__sku">SKU: <span className="product-page__sku--gray">{product.item_id}</span></h4>
+              <h4 className="product-page__categories">Categories: <span className="product-page__categories--gray">{product.title}</span></h4>
 
             </div>
           </>

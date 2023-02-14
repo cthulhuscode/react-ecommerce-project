@@ -1,0 +1,142 @@
+.product-page{
+  padding-top: 30px;
+  display: flex;
+  
+
+  &__img-box{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    
+  }
+  
+  &__img{
+    border: 1px solid var(--color-gray);
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 8px;
+  }
+
+  &__info{
+    flex: 1;
+
+  }
+
+  &__name{   
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 35px;
+  }
+
+  &__price{
+    margin-top: 23px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: var(--color-primary);
+  }
+
+  &__rating{
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__stars{
+    display: flex;
+    gap: 10px;
+  }
+
+  &__star{
+    width: 18px;
+    height: 17.25px;
+    cursor: pointer;
+  }
+
+  &__reviews-count{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px; 
+    color: var(--color-dark-gray);   
+    vertical-align: middle;
+  }
+
+  &__description{
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;    
+    color: var(--color-dark-gray);   
+  }
+
+  &__add-cart{
+    margin-top: 48px;
+    display: flex;
+    gap: 23px;    
+  }
+
+  &__amount{
+    max-width: 102px;
+    height: 53px;
+  }
+
+  &__btn{
+    cursor: pointer;
+    flex: 1;
+    max-width: 360px;
+    height: 53px;
+
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    border-radius: 4px;    
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--color-black);    
+    text-transform: uppercase;
+
+    &:hover{
+      background-color: var(--color-light-gray);
+      border: none;      
+    }
+  }
+
+  &__icons{
+    margin-top: 82px;
+    display: flex;
+    gap: 25px;
+    max-height: 18px;
+  }
+
+  &__sku{
+    margin-top: 37px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+
+    &--gray{
+      color: var(--color-dark-gray);   
+    }
+  }
+
+  &__categories{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    
+    &--gray{
+      color: var(--color-dark-gray);   
+    }
+  }
+}
