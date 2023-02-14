@@ -4,7 +4,7 @@ import axios  from "axios";
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
-  //Consimo de una api con axios
+  // Consimo de una api con axios
   useEffect(() => {
      const fetchItems = async () =>{
       try {
@@ -28,9 +28,9 @@ export const Categories = () => {
       <div className="category-flex ">
         {
           categories.map((category) => 
-              <a className="category-item" href="#"  key={category}> {/*Falta darle enlaces a las categorias */}
-                <h4 className="category_tittle-item">{category}</h4>
-              </a>
+            <a className="category-item" href="#"  key={category}> {/* Falta darle enlaces a las categorias */}
+              <h4 className="category_tittle-item">{category}</h4>
+            </a>
           )
         }
       </div>
