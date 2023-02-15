@@ -1,8 +1,9 @@
-import { images } from "../../constants/images";
-import {motion} from "framer-motion";
-import "./Navbar.scss";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import {motion} from "framer-motion";
+
+import { images } from "../../constants/images";
+import "./Navbar.scss";
 
 export const Navbar = () => {
   const [toggle, setToggle] = useState(false);
