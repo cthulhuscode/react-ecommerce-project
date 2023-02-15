@@ -1,14 +1,12 @@
 .product-page{
-  padding-top: 30px;
+  margin-top: 70px;
   display: flex;
   
-
   &__img-box{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;    
-    
   }
   
   &__img{
