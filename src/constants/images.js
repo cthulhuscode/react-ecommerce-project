@@ -15,6 +15,8 @@ import email from "../assets/email.svg";
 import fb from "../assets/fb.svg";
 import ig from "../assets/ig.svg";
 import tw from "../assets/tw.svg";
+import inc from "../assets/inc.svg";
+import dec from "../assets/dec.svg";
 
 export const images = {
 	logo,
@@ -34,4 +36,6 @@ export const images = {
 	fb,
 	ig,
 	tw,
+	inc,
+	dec,
 };
