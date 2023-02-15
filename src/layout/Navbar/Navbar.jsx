@@ -2,8 +2,7 @@ import { images } from "../../constants/images";
 import {motion} from "framer-motion";
 import "./Navbar.scss";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -18,12 +17,12 @@ export const Navbar = () => {
     <nav className="navbar">
 
       <Link to="/">
-        <img className="navbar__logo" src={images.logo} alt="Shoppe" />
+        <motion.img whileTap={{scale: 0.99}} className="navbar__logo" src={images.logo} alt="Shoppe" />
       </Link>
 
       {/* Desktop menu */}
       <ul className="navbar-list">
-        <li className="navbar-list__item">
+        {/* <li className="navbar-list__item">
           <NavLink 
             to="/products"
             className={({ isActive }) => isActive 
@@ -31,10 +30,10 @@ export const Navbar = () => {
               : "navbar-list__anchor"
             }>Shop
           </NavLink>
-        </li>
-        <li className="navbar-list__item">
+        </li> */}
+        {/* <li className="navbar-list__item">
           <img className="navbar-list__icon" src={images.line} alt="line" />          
-        </li>
+        </li> */}
         {/* <li className="navbar-list__item">
           <img className="navbar-list__icon" src={images.lupa} alt="buscar" />
         </li> */}
@@ -98,9 +97,9 @@ export const Navbar = () => {
                 <Link className="navbar-menu__item-link" to="/">Home</Link>
               </li>
 
-              <li className="navbar-menu__item">
+              {/* <li className="navbar-menu__item">
                 <Link className="navbar-menu__item-link" to="/products">Shop</Link>
-              </li>
+              </li> */}
 
               <li className="navbar-menu__item">
                 <Link className="navbar-menu__item-link" to="/checkout">Cart</Link>
@@ -109,7 +108,7 @@ export const Navbar = () => {
               <hr className="navbar-menu__separator"/>
 
               <li className="navbar-menu__item">
-                <Link className="navbar-menu__item-link" to="/products">                  
+                <Link className="navbar-menu__item-link" to="/account">                  
                   <img className="navbar-menu__item-icon" src={images.account} alt="" />
                   <span className="navbar-menu__item-text">My account</span>
                 </Link>
