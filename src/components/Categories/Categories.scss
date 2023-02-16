@@ -2,25 +2,18 @@
 	margin-top: 70px;
 	&-flex {
 		display: flex;
-		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
 	}
 	&-item {
-		width: 140px;
-		height: 40px;
-		display: flex;
-		align-items: center;
+		padding: 10px 45px;
 		text-decoration: none;
-		justify-content: center;
 		border: 1px solid #d8d8d8;
 		border-radius: 4px;
-
 		font-weight: 400;
 		font-size: 12px;
 		line-height: 20px;
-
 		color: #000000;
 	}
 	&_tittle-item {
@@ -29,5 +22,15 @@
 	}
 	&-item:hover .category_tittle-item {
 		transform: scale(1.2);
+	}
+}
+@media screen and (max-width: 780px) {
+	.category {
+		overflow-x: scroll;
+		&-flex {
+			display: flex;
+			align-items: center;
+			justify-content: start;
+		}
 	}
 }
