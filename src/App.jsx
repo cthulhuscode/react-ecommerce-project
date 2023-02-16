@@ -4,6 +4,7 @@ import { Navbar } from "./layout/Navbar/Navbar";
 import "./App.scss"
 import { Cart } from "./components";
 import { useSelector } from "react-redux";
+import { Auth } from "./components/Auth/Auth";
 
 const App = () => {
 
@@ -17,6 +18,8 @@ const App = () => {
 				
 			<Routes>
 				<Route path="/" element={<HomePage />} />			
+				<Route path="/auth/:login" element={<Auth />} />			
+				<Route path="/auth/:register" element={<Auth />} />			
 				<Route path="/products" element={<ProductsPage />} />			
 				<Route path="/products/:id" element={<ProductPage />} />	
 
