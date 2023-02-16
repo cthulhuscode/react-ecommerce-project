@@ -66,20 +66,25 @@ form .username {
 }
 
 .logreg {
+    background-color: var(--color-light-gray);
     width: 500px;
     height: 60px;
     padding: 5px;
     /* Light Colors/Light gray - Light */
-    background: #EFEFEF;
+
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    // box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
-.label{
+.label__selected{
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+.label{
+    // box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -109,7 +114,7 @@ form .username {
 }
 
 .reg__label {
-    background-color: white;
+
     /* 20px - Heading 3 */
 
     /* identical to box height, or 130% */
@@ -124,7 +129,7 @@ form .username {
     height: 60px;
     border: none;
     /* Light Colors/White - Light */
-    background: #FFFFFF;
+
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
