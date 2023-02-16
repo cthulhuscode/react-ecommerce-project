@@ -1,0 +1,59 @@
+.input-number{    
+  max-width: 102px;        
+  width: 25%;
+  height: 53px;
+  background-color: var(--color-light-gray);
+  border-radius: 4px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: var(--color-dark-gray);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  &__val{
+    width: 25px;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    color: var(--color-dark-gray);
+  }
+
+  button{
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--color-dark-gray);
+    
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+  }
+
+  @media screen and (max-width: 420px){
+    height: 32px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
