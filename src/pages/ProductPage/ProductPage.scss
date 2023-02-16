@@ -1,0 +1,234 @@
+.product-page{
+  margin-top: 70px;
+  display: flex;
+  
+  
+  &__img-box{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+  }
+  
+  &__img{
+    border: 1px solid var(--color-gray);
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 8px;
+  }
+
+  &__info{
+    flex: 1;
+
+    @media screen and (max-width: 799px){
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__name{   
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 35px;
+
+    @media screen and (max-width: 799px){
+      order: 1;
+    }
+  }
+
+  &__price{
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: var(--color-primary);
+
+    @media screen and (max-width: 799px){
+      order: 2;
+    }
+  }
+
+  &__rating{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @media screen and (max-width: 799px){
+      order: 4;
+    }
+  }
+
+  &__stars{
+    display: flex;
+    gap: 10px;
+  }
+
+  &__star{
+    width: 18px;
+    height: 17.25px;
+    cursor: pointer;
+  }
+
+  &__reviews-count{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px; 
+    color: var(--color-dark-gray);   
+    vertical-align: middle;
+  }
+
+  &__description{
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;    
+    color: var(--color-dark-gray);   
+
+    @media screen and (max-width: 799px){
+      order: 5;
+    }
+  }
+
+  &__add-cart{
+    margin-top: 35px;
+    display: flex;
+    gap: 23px;    
+
+    @media screen and (max-width: 799px){
+      order: 3;
+    }
+  }
+
+  &__amount{    
+    max-width: 102px;        
+    width: 25%;
+    height: 53px;
+    background-color: var(--color-light-gray);
+    border-radius: 4px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    color: var(--color-dark-gray);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &-val{
+      width: 25px;
+      height: 100%;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      text-align: center;
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 27px;
+      color: var(--color-dark-gray);
+    }
+
+    button{
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 27px;
+      color: var(--color-dark-gray);
+      
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      position: relative;
+    }
+  }
+
+  &__btn{
+    cursor: pointer;
+    flex: 1;
+    max-width: 360px;
+    height: 53px;
+
+    background-color: var(--color-white);
+    border: 1px solid var(--color-black);
+    border-radius: 4px;    
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--color-black);    
+    text-transform: uppercase;
+
+    &:hover{
+      background-color: var(--color-black);
+      color: var(--color-white);
+      border: none;      
+    }
+  }
+
+  &__icons{
+    margin-top: 45px;
+    display: flex;
+    gap: 25px;
+    max-height: 18px;
+
+    @media screen and (max-width: 799px){
+      order: 6;
+    }
+  }
+
+  &__icon{
+    cursor: pointer;
+  }
+
+  &__sku{
+    margin-top: 27px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+
+    &--gray{
+      color: var(--color-dark-gray);   
+    }
+
+    @media screen and (max-width: 799px){
+      order: 7;
+    }
+  }
+
+  &__categories{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    
+    &--gray{
+      color: var(--color-dark-gray);   
+    }
+
+    @media screen and (max-width: 799px){
+      order: 8;
+    }
+  }
+
+  @media screen and (max-width: 799px){
+    flex-direction: column;
+  }
+}
