@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import {motion} from "framer-motion";
+import { useDispatch } from "react-redux";
 
+import { toggleCart } from "../../store/slices";
 import { images } from "../../constants/images";
 import "./Navbar.scss";
 
 export const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const dispatch = useDispatch();
   const isAuth = false;
 
   const handleMenuClick = (e) => {
@@ -38,7 +41,7 @@ export const Navbar = () => {
         {/* <li className="navbar-list__item">
           <img className="navbar-list__icon" src={images.lupa} alt="buscar" />
         </li> */}
-        <li className="navbar-list__item">
+        <li className="navbar-list__item" onClick={() => dispatch(toggleCart())}>
           <motion.img 
             className="navbar-list__icon" 
             src={images.cart} 
