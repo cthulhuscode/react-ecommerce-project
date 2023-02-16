@@ -1,11 +1,11 @@
-import { ProductsList, Cart } from "../../components";
+import { ProductsList, Cart, Categories } from "../../components";
 
 export const HomePage = () => {
-  return (
-    <div className="home">
-      {/* <Categories/> */}
-      <ProductsList /> 
-      <Cart />
-    </div>
-  )
-}
+	return (
+		<div className="home">
+			<Categories />
+			<ProductsList />
+			<Cart />
+		</div>
+	);
+};
