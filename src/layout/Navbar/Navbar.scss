@@ -43,8 +43,24 @@
       
       cursor: pointer;
 
+      &-cart{
+        position: relative;
+      }
     }
     
+    &__counter{
+      position: absolute;
+      top: 27px;
+      right: 2px;
+      font-size: 10px;
+
+      width: 12px;
+      height: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     &__anchor{
       display: flex;
       flex-direction: column;
@@ -76,18 +92,48 @@
   }
 
   &-menu{
-    width: 20px;
-    height: 15px;
-    position: relative;
-    padding-bottom: 22px;
+    height: 100%;
+    position: relative;    
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    &__icon{
+    &__icons{
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      
+      height: 100%;
+      list-style: none;
       cursor: pointer;
-    }    
+
+      &-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+        padding-bottom: 12px;
+        
+        cursor: pointer;        
+        position: relative;
+
+        &-counter{
+          position: absolute;
+          top: 27px;
+          right: 2px;
+          font-size: 10px;
+    
+          width: 12px;
+          height: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;          
+        }
+      }
+      
+    }
 
     &__content{
       position: fixed;
