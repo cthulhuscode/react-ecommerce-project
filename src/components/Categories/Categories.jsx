@@ -7,7 +7,7 @@ export const Categories = () => {
 	const { data, isLoading } = useGetProductsQuery();
 	const dispatch = useDispatch();
 
-	const uniqueTitles = new Set();
+	const uniqueTitles = new Set();	
 
 	const handleClick = (e) => {
 		const category = e.currentTarget.name;
@@ -17,6 +17,9 @@ export const Categories = () => {
 	return (
 		<div className="category">
 			<div className="category-flex ">
+				<a className="category-item" key="all-items-xd" name="All" onClick={handleClick}>
+					<h4 className="category_tittle-item">All</h4>
+				</a>
 				{!isLoading &&
 					data.data.map((product) => {
 						if (uniqueTitles.has(product.title)) {
