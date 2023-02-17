@@ -63,9 +63,34 @@ form .username {
     position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
+    display: block;
+
+}
+
+.username__selected{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+.username__not{
+    display: none;
 }
 
 .logreg {
+    background-color: var(--color-light-gray);
+    width: 500px;
+    height: 60px;
+    padding: 5px;
+    /* Light Colors/Light gray - Light */
+
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.logreg a{
     background-color: var(--color-light-gray);
     width: 500px;
     height: 60px;
