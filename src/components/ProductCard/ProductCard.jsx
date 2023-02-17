@@ -1,12 +1,19 @@
 import PropTypes from "prop-types";
 import {motion} from "framer-motion";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { addProductToCart } from "../../store/slices";
 import { images } from "../../constants/images";
 import "./ProductCard.scss";
 
 export const ProductCard = ({ product }) => {
-
+  const dispatch = useDispatch();
   const { name, price, imageUrl } = product;
+
+  const handleAddCartClick = () => {
+    dispatch(addProductToCart({productData: product, amount: 1}))
+  }
 
   return (
     <div className="product-card">
@@ -24,6 +31,7 @@ export const ProductCard = ({ product }) => {
           <motion.button 
             className="product-card__cart-box"
             whileTap={{scale: 0.8}}
+            onClick={handleAddCartClick}
           >
             <img className="product-card__cart-icon" src={images.addToCart} alt="Add to cart" />
           </motion.button>          

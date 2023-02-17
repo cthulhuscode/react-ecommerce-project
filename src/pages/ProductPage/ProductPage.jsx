@@ -2,19 +2,28 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import { motion } from "framer-motion";
-import { useGetProductsQuery } from "../../store/apis"
+import { useGetProductsQuery } from "../../store/apis";
+import { useDispatch } from "react-redux";
 
+import { addProductToCart } from "../../store/slices/cartSlice";
 import { SocialMediaIcons } from "./SocialMediaIcons";
 import { Stars } from "./Stars";
 import { InputNumber } from "../../ui";
 import "./ProductPage.scss";
 
 export const ProductPage = () => {
-
+  const dispatch = useDispatch();
   const [amount, setAmount] = useState(1);
   const { id } = useParams();
   const { data, isLoading } = useGetProductsQuery();
   const product =  data?.data.find(product => product.item_id.toString() === id.toString()); 
+
+  const handleAddCartBtnClick = () => {
+    dispatch(addProductToCart({
+      productData: product,
+      amount,
+    }))
+  }
 
   return (
     <div className="product-page">
@@ -36,7 +45,7 @@ export const ProductPage = () => {
 
               <div className="product-page__add-cart" >                
                 <InputNumber value={amount} setValue={setAmount} />
-                <motion.button className="product-page__btn" whileTap={{scale: 0.9}}>Add to Cart</motion.button>
+                <motion.button className="product-page__btn" whileTap={{scale: 0.9}} onClick={handleAddCartBtnClick}>Add to Cart</motion.button>
               </div>
 
               <SocialMediaIcons />
