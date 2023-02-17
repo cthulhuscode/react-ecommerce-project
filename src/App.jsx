@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage, ProductsPage, ProductPage } from "./pages";
-import { Navbar } from "./layout/Navbar/Navbar";
-import { Footer } from "./layout/Footer/Footer";
-import "./App.scss";
-import { Cart } from "./components";
 import { useSelector } from "react-redux";
 import { Auth } from "./components/Auth/Auth";
+
+import { Navbar } from "./layout/Navbar/Navbar";
+import { Footer } from "./layout/Footer/Footer";
+import { Cart } from "./components";
+import "./App.scss";
 
 const App = () => {
 	const showCart = useSelector((state) => state.cart.show);
@@ -18,10 +19,10 @@ const App = () => {
 				{showCart && <Cart />}
 
 				<Routes>
-					<Route path="/" element={<HomePage />} />
 					<Route path="/auth/:auth" element={<Auth />} />
-					<Route path="/products" element={<ProductsPage />} />
 					<Route path="/products/:id" element={<ProductPage />} />
+					<Route path="/products" element={<ProductsPage />} />
+					<Route path="/" element={<HomePage />} />
 
 					{/* This must always be at the end */}
 					<Route path="*" element={<h1>Not found</h1>} />
