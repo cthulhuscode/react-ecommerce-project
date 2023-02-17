@@ -18,7 +18,7 @@ export const InputNumber = ({ value, setValue, classes }) => {
 
   const handleInputChange = (e) => {
     const onlyNumbers = /^(?:-(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))|(?:0|(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))))(?:.\d+|)$/g;
-    const newValue = e.target.value;
+    const newValue = parseInt(e.target.value);
     
     if(onlyNumbers.test(newValue))
       setValue(newValue);
