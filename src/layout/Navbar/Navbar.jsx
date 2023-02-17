@@ -10,11 +10,14 @@ import "./Navbar.scss";
 export const Navbar = () => {
   const dispatch = useDispatch();
   const productsCount = useSelector(state => state.cart.productsCount);
+  const showCart = useSelector(state => state.cart.show);
   const [toggle, setToggle] = useState(false);
   const isAuth = false;
 
   const handleMenuClick = (e) => {
     // e.stopPropagation();
+    if(showCart)
+      dispatch(toggleCart())
     setToggle(prevState => !prevState);
   } 
 
@@ -65,14 +68,31 @@ export const Navbar = () => {
 
       {/* Mobile menu */}
       <div className="navbar-menu">
-        <motion.img 
-          whileHover={{scale: 1.15}}
-          whileTap={{scale: 0.8}}
-          onClick={handleMenuClick} 
-          className="navbar-menu__icon" 
-          src={images.menu} 
-          alt="Menu"
-        />
+        <ul className="navbar-menu__icons">
+          <li 
+            className="navbar-menu__icons-item" 
+            onClick={() => dispatch(toggleCart())}
+          >
+            <motion.img 
+              className="navbar-menu__icon" 
+              src={images.cart} 
+              alt="carrito de compra"
+                whileHover={{scale: 1.15}}
+                whileTap={{scale: 0.8}}
+            />
+            <span className="navbar-menu__icons-item-counter">{productsCount}</span>
+          </li>
+          <li className="navbar-menu__icons-item">
+            <motion.img 
+              className="navbar-menu__icon" 
+              whileHover={{scale: 1.15}}
+              whileTap={{scale: 0.8}}
+              onClick={handleMenuClick} 
+              src={images.menu} 
+              alt="Menu"
+            />
+          </li>
+        </ul>
 
         { toggle && (
           <motion.div
