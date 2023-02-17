@@ -1,0 +1,125 @@
+$sides-p: 20px;
+
+.cart{
+  position: fixed;
+  z-index: 99;
+  top: 70px;
+  right: 0;
+
+  width: 300px;
+  height: calc(100vh - 70px);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-gray);   
+  border-right: none;
+  padding-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__top{
+    padding: 0 $sides-p;
+    padding-bottom: 10px;
+  }
+
+  &__title{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;    
+  }
+
+  &__subtitle{
+    display: flex;
+    justify-content: space-between;
+
+    span{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;    
+      color: var(--color-dark-gray);
+    }
+  }
+  
+  &__clear{
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  &__list{
+    flex: 1;
+    overflow-y: scroll;
+
+    padding: $sides-p;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__bottom{
+    padding: 0 $sides-p;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-top: 1px solid var(--color-light-gray);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &-prices{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__subtotal{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;    
+  }
+
+  &__price{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;    
+    color: var(--color-primary);
+  }
+
+  &__btn{
+    width: 250px;
+    height: 40px;
+  }
+
+  &__close{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    width: 15px;
+    height: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;    
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 1255px){
+    border-top: none;
+  }
+
+  @media screen and (max-width: 350px){
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+}

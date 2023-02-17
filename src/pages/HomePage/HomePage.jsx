@@ -1,12 +1,10 @@
-// import { Categories } from "../../layout/Categories/Categories"
+import { ProductsList, Categories } from "../../components";
 
 export const HomePage = () => {
   return (
     <div className="home">
-      <h1>Home</h1>
-      {/* <Categories/> */}
-      <br />
-      {/* <ProductsList /> */}    
+      <Categories />
+      <ProductsList /> 
     </div>
   )
 }

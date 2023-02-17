@@ -9,6 +9,14 @@ import logout from "../assets/logout.svg";
 import earrings from "../assets/earrings.png";
 import login from "../assets/login.png";
 import addToCart from "../assets/add-to-cart.png";
+import star from "../assets/star.svg";
+import heart from "../assets/heart.svg";
+import email from "../assets/email.svg";
+import fb from "../assets/fb.svg";
+import ig from "../assets/ig.svg";
+import tw from "../assets/tw.svg";
+import inc from "../assets/inc.svg";
+import dec from "../assets/dec.svg";
 
 export const images = {
 	logo,
@@ -22,4 +30,12 @@ export const images = {
 	earrings,
 	login,
 	addToCart,
+	star,
+	heart,
+	email,
+	fb,
+	ig,
+	tw,
+	inc,
+	dec,
 };
