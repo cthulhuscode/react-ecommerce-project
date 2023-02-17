@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage, ProductsPage, ProductPage } from "./pages";
-import { Navbar } from "./layout/Navbar/Navbar";
-import "./App.scss"
-import { Cart } from "./components";
 import { useSelector } from "react-redux";
+
+import { Navbar } from "./layout/Navbar/Navbar";
+import { Cart } from "./components";
+import "./App.scss"
 
 const App = () => {
 
