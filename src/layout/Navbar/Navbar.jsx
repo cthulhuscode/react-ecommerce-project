@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import {motion} from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { toggleCart } from "../../store/slices";
 import { images } from "../../constants/images";
 import "./Navbar.scss";
 
 export const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
   const dispatch = useDispatch();
+  const productsCount = useSelector(state => state.cart.productsCount);
+  const [toggle, setToggle] = useState(false);
   const isAuth = false;
 
   const handleMenuClick = (e) => {
@@ -41,14 +42,15 @@ export const Navbar = () => {
         {/* <li className="navbar-list__item">
           <img className="navbar-list__icon" src={images.lupa} alt="buscar" />
         </li> */}
-        <li className="navbar-list__item" onClick={() => dispatch(toggleCart())}>
+        <li className="navbar-list__item navbar-list__item-cart" onClick={() => dispatch(toggleCart())}>
           <motion.img 
             className="navbar-list__icon" 
             src={images.cart} 
             alt="carrito de compra"
-            whileHover={{scale: 1.15}}
-            whileTap={{scale: 0.8}}
+              whileHover={{scale: 1.15}}
+              whileTap={{scale: 0.8}}
           />
+          <span className="navbar-list__counter">{productsCount}</span>
         </li>
         <li className="navbar-list__item">
           <motion.img 

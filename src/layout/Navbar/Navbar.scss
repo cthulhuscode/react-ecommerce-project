@@ -43,8 +43,26 @@
       
       cursor: pointer;
 
+      &-cart{
+        position: relative;
+      }
     }
     
+    &__counter{
+      position: absolute;
+      top: 27px;
+      right: 2px;
+      font-size: 10px;
+
+      width: 12px;
+      height: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      
+    }
+
     &__anchor{
       display: flex;
       flex-direction: column;
