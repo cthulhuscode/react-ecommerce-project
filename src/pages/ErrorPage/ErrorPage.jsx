@@ -1,13 +1,23 @@
-import { Link } from "react-router-dom"
-import "./ErrorPage.scss"
-export const Errorpage = () => {
+import { useNavigate } from "react-router-dom";
+import { Button } from "../../ui";
+import "./ErrorPage.scss";
+
+export const ErrorPage = () => {
+    const navigate = useNavigate();
+
     return (
-        <div className="padre">
-            <div className="page__error">404 ERROR</div>
-            <div className="message__err">This Page not found; <br /> back to home and start again</div>
-            <Link to="/">
-            <input className="button__home label__home" type="button" value="HOMEPAGE" />
-            </Link>
-        </div>
-    )
-}
+        <div className="error">
+            <h1 className="error__title">404 ERROR</h1>
+            <h3 className="error__subtitle">
+                This page not found; <br /> back to home and start again
+            </h3>
+            <Button
+                variant={"white"}
+                classes={"error__btn"}
+                handleClick={() => { navigate("/", { replace: true }) }}
+            >
+                Homepage
+            </Button>
+        </div >
+    );
+};
