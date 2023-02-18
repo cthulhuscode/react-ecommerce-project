@@ -3,6 +3,9 @@
   max-width: 1248px;
   padding-top: 20px;
 
+  position: relative;
+  min-height: 100vh;
+
   @media screen and (max-width: 1300px) {
     padding: 20px 50px;
   }

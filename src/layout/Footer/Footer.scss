@@ -5,6 +5,11 @@
 	padding: 30px 0px;
 	border-top: 2px solid var(--color-gray);
 
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: -1;
+
 	&-services {
 		display: flex;
 		gap: 40px;

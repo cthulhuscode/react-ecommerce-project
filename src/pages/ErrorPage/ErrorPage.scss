@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: calc(100vh - 215.6px);
+	height: calc(100vh - var(--footer-height));
 
 	&__title {
         font-style: normal;
