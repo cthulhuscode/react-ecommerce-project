@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "./ErrorPage.scss"
-export const Errorpage = () => {
+export const ErrorPage = () => {
     return (
         <div className="padre">
             <div className="page__error">404 ERROR</div>

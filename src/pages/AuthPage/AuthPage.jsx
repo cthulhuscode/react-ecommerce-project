@@ -1,9 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
-import './Auth.scss'
+import './AuthPage.scss'
 
-export const Auth = () => {
+export const AuthPage = () => {
     const { auth } = useParams()
-    console.log(auth);
 
     return (
         <div className="formulario">

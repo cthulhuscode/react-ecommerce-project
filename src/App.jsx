@@ -1,10 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage, ProductsPage, ProductPage } from "./pages";
 import { useSelector } from "react-redux";
-import { Auth } from "./components/Auth/Auth";
-import { Errorpage } from "./pages/ErrorPage/ErrorPage";
-import { Navbar } from "./layout/Navbar/Navbar";
-import { Footer } from "./layout/Footer/Footer";
+
+import { HomePage, ProductsPage, ProductPage, ErrorPage, AuthPage } from "./pages";
+import { Navbar, Footer } from "./layout";
 import { Cart } from "./components";
 import "./App.scss";
 
@@ -19,15 +17,15 @@ const App = () => {
 				{showCart && <Cart />}
 
 				<Routes>
-					<Route path="/auth/:auth" element={<Auth />} />
+					<Route path="/auth/:auth" element={<AuthPage />} />
 					<Route path="/products/:id" element={<ProductPage />} />
 					<Route path="/products" element={<ProductsPage />} />
 					<Route path="/" element={<HomePage />} />
-					<Route path="/error" element={<Errorpage />}></Route>
 
 					{/* This must always be at the end */}
-					<Route path="*" element={<h1>Not found</h1>} />
+					<Route path="*" element={<ErrorPage />} />
 				</Routes>
+
 				<Footer />
 			</BrowserRouter>
 		</div>
