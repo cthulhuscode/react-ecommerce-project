@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { HomePage, ProductsPage, ProductPage, ErrorPage, AuthPage } from "./pages";
@@ -11,7 +11,7 @@ const App = () => {
 
 	return (
 		<div className="app">
-			<BrowserRouter>
+			<HashRouter>
 				{/* Shows in all pages */}
 				<Navbar />
 				{showCart && <Cart />}
@@ -27,7 +27,7 @@ const App = () => {
 				</Routes>
 
 				<Footer />
-			</BrowserRouter>
+			</HashRouter>
 		</div>
 	);
 };
