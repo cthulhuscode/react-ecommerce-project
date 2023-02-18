@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Auth } from "./components/Auth/Auth";
 import { Errorpage } from "./pages/ErrorPage/ErrorPage";
 import { Navbar } from "./layout/Navbar/Navbar";
+import { Footer } from "./layout/Footer/Footer";
 import { Cart } from "./components";
 import "./App.scss";
 
@@ -27,6 +28,7 @@ const App = () => {
 					{/* This must always be at the end */}
 					<Route path="*" element={<h1>Not found</h1>} />
 				</Routes>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);

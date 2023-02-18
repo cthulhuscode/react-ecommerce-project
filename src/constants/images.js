@@ -16,6 +16,7 @@ import fb from "../assets/fb.svg";
 import ig from "../assets/ig.svg";
 import tw from "../assets/tw.svg";
 import inc from "../assets/inc.svg";
+import link from "../assets/link.svg";
 import dec from "../assets/dec.svg";
 
 export const images = {
@@ -37,5 +38,6 @@ export const images = {
 	ig,
 	tw,
 	inc,
+	link,
 	dec,
 };
