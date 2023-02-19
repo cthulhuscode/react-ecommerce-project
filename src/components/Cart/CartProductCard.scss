@@ -53,10 +53,12 @@
     align-items: center;
     justify-content: center;
 
+    color: var(--color-black);
     font-weight: bolder;
     border: none;
     outline: none;
     background-color: transparent;
+    font-size: 12px;
     cursor: pointer;
   }
 }

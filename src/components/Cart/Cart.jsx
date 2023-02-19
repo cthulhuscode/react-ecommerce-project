@@ -61,7 +61,7 @@ export const Cart = () => {
 
 			<motion.button
 				className="cart__close"
-				whileHover={{ scale: 1.05 }}
+				whileHover={{ scale: 1.1 }}
 				whileTap={{ scale: 0.8 }}
 				onClick={() => dispatch(toggleCart())}
 			>
