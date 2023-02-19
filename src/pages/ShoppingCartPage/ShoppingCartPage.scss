@@ -104,3 +104,25 @@
 	background: #000000;
 	color: #ffffff;
 }
+
+@media screen and (max-width: 880px) {
+	.ShoppingCartPage {
+		margin-top: 50px;
+		text-align: center;
+		&_content {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			grid-template-rows: repeat(2, min-content);
+			margin-top: 15px;
+			gap: 20px;
+		}
+		&_cart {
+			grid-row: 2/3;
+		}
+
+		&_totals {
+			grid-row: 1/2;
+			margin-bottom: 20px;
+		}
+	}
+}
