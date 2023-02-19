@@ -16,6 +16,8 @@
   &__logo{
     width: 158px;
     height: 40px;
+    margin-bottom: 4px;
+    cursor: pointer;
 
     @media screen and (max-width: 680px){
       width: 99px;
