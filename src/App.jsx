@@ -1,7 +1,14 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { HomePage, ProductsPage, ProductPage, ErrorPage, AuthPage } from "./pages";
+import {
+	HomePage,
+	ProductsPage,
+	ProductPage,
+	ErrorPage,
+	AuthPage,
+	ShoppingCartPage,
+} from "./pages";
 import { Navbar, Footer } from "./layout";
 import { Cart } from "./components";
 import "./App.scss";
@@ -15,12 +22,12 @@ const App = () => {
 				{/* Shows in all pages */}
 				<Navbar />
 				{showCart && <Cart />}
-
 				<Routes>
 					<Route path="/auth/:auth" element={<AuthPage />} />
 					<Route path="/products/:id" element={<ProductPage />} />
 					<Route path="/products" element={<ProductsPage />} />
 					<Route path="/" element={<HomePage />} />
+					<Route path="/shopping-cart" element={<ShoppingCartPage />} />
 
 					{/* This must always be at the end */}
 					<Route path="*" element={<ErrorPage />} />
