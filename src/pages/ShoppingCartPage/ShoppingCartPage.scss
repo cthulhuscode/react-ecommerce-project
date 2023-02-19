@@ -1,6 +1,8 @@
 .ShoppingCartPage {
 	margin-top: 50px;
 	text-align: center;
+	padding-bottom: var(--footer-height);
+
 	&_content {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);

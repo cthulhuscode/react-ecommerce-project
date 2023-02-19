@@ -20,5 +20,11 @@
 
 body{
 	font-family: "DM Sans";
-	
+}
+
+/* Footer height for mobile */
+@media screen and (max-width: 625px) {
+	:root{
+		--footer-height: 318px;
+	}
 }
