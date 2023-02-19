@@ -25,7 +25,7 @@ export const AuthPage = () => {
                 </div>
                 <div className="username register__selected">
                     <input type="username register__selected" required />
-                    <label>Nombre</label>
+                    <label>Username</label>
                 </div>
                 <div className="username">
                     <input type="password" required />
@@ -33,11 +33,11 @@ export const AuthPage = () => {
                 </div>
                 <div className="recordar">
                     <p>
-
                         <label><input className="mycheck" type="checkbox" /> Recordarme</label>
                     </p>
                 </div>
-                <input type="submit" value="SIGN IN" />
+                {/* <input className="inputvalue" type="submit" value="SIGN IN" /> */}
+                <button className='buttonvalue' >SIGN IN</button>
                 <div className="registrarse">
                     Have you forgotten your password?<br />
                 </div>
