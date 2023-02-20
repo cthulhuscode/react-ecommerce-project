@@ -1,12 +1,12 @@
 .ShoppingCartPage {
-	margin-top: 50px;
+	margin-top: 80px;
 	text-align: center;
 	padding-bottom: var(--footer-height);
 
 	&_content {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		margin-top: 15px;
+		margin-top: 35px;
 		gap: 20px;
 	}
 	&_col {
@@ -17,11 +17,12 @@
 	&_items {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		gap: 10px;
 		margin-bottom: 20px;
 		z-index: -1;
 	}
-	&_items2 {
+	&_items2 {		
 		padding-bottom: 4px;
 		border-bottom: 1px solid #d8d8d8;
 	}
@@ -33,6 +34,7 @@
 	}
 
 	&_title {
+		text-align: center;
 		font-weight: 500;
 		font-size: 33px;
 		line-height: 43px;
@@ -110,9 +112,9 @@
 
 @media screen and (max-width: 880px) {
 	.ShoppingCartPage {
-		margin-top: 50px;
+		margin-top: 70px;
 		text-align: center;
-		&_content {
+		&_content {					
 			display: grid;
 			grid-template-columns: repeat(1, 1fr);
 			grid-template-rows: repeat(2, min-content);
@@ -122,8 +124,8 @@
 		&_cart {
 			grid-row: 2/3;
 		}
-
 		&_totals {
+			margin-top: 10px;
 			grid-row: 1/2;
 			margin-bottom: 20px;
 		}
