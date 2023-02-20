@@ -3,7 +3,9 @@
 
 # Ecommerce Project
 
-An online shopping built using React.js, Redux Toolkit, Sass and React Router
+An online shop built using React.js, Redux Toolkit, RTK Query, Redux Persist, Sass, React Router, Framer-Motion.
+
+[See the website](https://tot-ecommerce-project.netlify.app/)
 
 <br>
 
