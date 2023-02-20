@@ -8,6 +8,7 @@ import {
 	ErrorPage,
 	AuthPage,
 	ShoppingCartPage,
+	CheckoutPage,
 } from "./pages";
 import { Navbar, Footer } from "./layout";
 import { Cart } from "./components";
@@ -28,6 +29,7 @@ const App = () => {
 					<Route path="/products" element={<ProductsPage />} />
 					<Route path="/" element={<HomePage />} />
 					<Route path="/shopping-cart" element={<ShoppingCartPage />} />
+					<Route path="/shopping-cart/checkout" element={<CheckoutPage />} />
 
 					{/* This must always be at the end */}
 					<Route path="*" element={<ErrorPage />} />
