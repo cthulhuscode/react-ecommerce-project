@@ -1,4 +1,5 @@
 import "./ShoppingCartPage.scss";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CartProductCard } from "../../components/Cart/CartProductCard";
 
@@ -42,7 +43,9 @@ export const ShoppingCartPage = () => {
 						<h4 className="ShoppingCartPage_title4">Total</h4>
 						<p className="ShoppingCartPage_parrafo2">${total}</p>
 					</div>
-					<button className="btn-black">Proceed to checkout</button>
+					<Link to="/shopping-cart/checkout">
+						<button className="btn-black">Proceed to checkout</button>
+					</Link>
 				</div>
 			</div>
 		</div>
