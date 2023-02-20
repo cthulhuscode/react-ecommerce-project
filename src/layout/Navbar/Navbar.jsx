@@ -1,28 +1,59 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import {motion} from "framer-motion";
-import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
 
-import { toggleCart } from "../../store/slices";
+import { selectCategory, toggleCart } from "../../store/slices";
 import { images } from "../../constants/images";
+import { AccountMenu } from "./AccountMenu/AccountMenu";
+import { MobileMenu } from "./MobileMenu/MobileMenu";
 import "./Navbar.scss";
 
 export const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
   const dispatch = useDispatch();
-  const isAuth = false;
+  const navigate = useNavigate();
+  const productsCount = useSelector(state => state.cart.productsCount);
+  const showCart = useSelector(state => state.cart.show);
+  const [showAccountMenu, setShowAccountMenu] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const handleMenuClick = (e) => {
+  const handleMobileMenuClick = (e) => {
     // e.stopPropagation();
-    setToggle(prevState => !prevState);
-  } 
+    if (showCart)
+      dispatch(toggleCart())
+
+    if (showAccountMenu)
+      setShowAccountMenu(false);
+
+    setShowMobileMenu(prevState => !prevState);
+  }
+
+  const handleCartClick = () => {
+    if (showAccountMenu)
+      setShowAccountMenu(false);
+
+    if (showMobileMenu)
+      setShowMobileMenu(false);
+
+    dispatch(toggleCart());
+  }
+
+  const handleAccountClick = () => {
+    if (showCart)
+      dispatch(toggleCart())
+
+    setShowAccountMenu(prevState => !prevState);
+  }
+
+  const handleLogoClick = () => {
+    dispatch(selectCategory("All"));
+    navigate("/");
+  }
 
   return (
     <nav className="navbar">
 
-      <Link to="/">
-        <motion.img whileTap={{scale: 0.99}} className="navbar__logo" src={images.logo} alt="Shoppe" />
-      </Link>
+      <motion.img whileTap={{ scale: 0.99 }} className="navbar__logo" src={images.logo} alt="Shoppe" onClick={handleLogoClick} />
 
       {/* Desktop menu */}
       <ul className="navbar-list">
@@ -41,98 +72,60 @@ export const Navbar = () => {
         {/* <li className="navbar-list__item">
           <img className="navbar-list__icon" src={images.lupa} alt="buscar" />
         </li> */}
-        <li className="navbar-list__item" onClick={() => dispatch(toggleCart())}>
-          <motion.img 
-            className="navbar-list__icon" 
-            src={images.cart} 
+        <li className="navbar-list__item navbar-list__item-cart" onClick={handleCartClick}>
+          <motion.img
+            className="navbar-list__icon"
+            src={images.cart}
             alt="carrito de compra"
-            whileHover={{scale: 1.15}}
-            whileTap={{scale: 0.8}}
+            whileTap={{ scale: 0.8 }}
           />
+          <span className="navbar-list__counter">{productsCount}</span>
         </li>
-        <li className="navbar-list__item">
-          <motion.img 
-            className="navbar-list__icon" 
-            src={images.account} 
+
+        <li className="navbar-list__item navbar-list__item-account">
+          <motion.img
+            className="navbar-list__icon"
+            src={images.account}
             alt="cuenta"
-            whileHover={{scale: 1.15}}
-            whileTap={{scale: 0.8}}            
-           />          
+            whileTap={{ scale: 0.8 }}
+            onClick={handleAccountClick}
+          />
+
+          {/* Account Menu */}
+          {showAccountMenu && <AccountMenu />}
+
         </li>
       </ul>
 
       {/* Mobile menu */}
       <div className="navbar-menu">
-        <motion.img 
-          whileHover={{scale: 1.15}}
-          whileTap={{scale: 0.8}}
-          onClick={handleMenuClick} 
-          className="navbar-menu__icon" 
-          src={images.menu} 
-          alt="Menu"
-        />
-
-        { toggle && (
-          <motion.div
-            className="navbar-menu__content"
-            initial={{ width: 0 }}
-            animate={{ width: 300 }}
-            transition={{duration: 0.85, ease: "easeOut"}}
+        <ul className="navbar-menu__icons">
+          <li
+            className="navbar-menu__icons-item"
+            onClick={handleCartClick}
           >
-            <motion.span
-              className="navbar-menu__close"
-              initial={{ width: 0 }}
-              animate={{ width: 70 }}
-              transition={{ duration: 0.35, ease: 'easeOut' }}
-              whileHover={{scale: 1.1}}
-              whileTap={{scale: 0.8}}    
-            >
-              <img 
-                className="navbar-menu__close-icon" 
-                src={images.close} 
-                alt="close" 
-                onClick={handleMenuClick}
-              />
-            </motion.span>
+            <motion.img
+              className="navbar-menu__icon"
+              src={images.cart}
+              alt="carrito de compra"
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.8 }}
+            />
+            <span className="navbar-menu__icons-item-counter">{productsCount}</span>
+          </li>
+          <li className="navbar-menu__icons-item">
+            <motion.img
+              className="navbar-menu__icon"
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.8 }}
+              onClick={handleMobileMenuClick}
+              src={images.menu}
+              alt="Menu"
+            />
+          </li>
+        </ul>
 
-            <ul className="navbar-menu__list">
-
-              <li className="navbar-menu__item">
-                <Link className="navbar-menu__item-link" to="/">Home</Link>
-              </li>
-
-              {/* <li className="navbar-menu__item">
-                <Link className="navbar-menu__item-link" to="/products">Shop</Link>
-              </li> */}
-
-              <li className="navbar-menu__item">
-                <Link className="navbar-menu__item-link" to="/checkout">Cart</Link>
-              </li>
-
-              <hr className="navbar-menu__separator"/>
-
-              <li className="navbar-menu__item">
-                <Link className="navbar-menu__item-link" to="/account">                  
-                  <img className="navbar-menu__item-icon" src={images.account} alt="" />
-                  <span className="navbar-menu__item-text">My account</span>
-                </Link>
-              </li>
-
-              <li className="navbar-menu__item">
-                {isAuth 
-                  ? <div className="navbar-menu__item-link">                      
-                      <img className="navbar-menu__item-icon" src={images.logout} alt="logout" />
-                      <span className="navbar-menu__item-text">Logout</span>
-                    </div> 
-                  : <Link className="navbar-menu__item-link" to="/login">                  
-                      <img className="navbar-menu__item-icon" src={images.login} alt="logout" style={{width: "24px", height: "24px"}}/>
-                      <span className="navbar-menu__item-text">Login</span>
-                    </Link>
-                }
-              </li>
-            </ul>
-          </motion.div>
-        )}
+        {showMobileMenu && <MobileMenu handleMobileMenuClick={handleMobileMenuClick} />}
       </div>
     </nav>
   )

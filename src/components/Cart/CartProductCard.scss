@@ -3,16 +3,24 @@
   position: relative;
   display: flex;
   gap: 10px;
+  min-width: 241px;    
+
+  text-align: start;
 
   &__img{
     width: 116px;
     height: 116px;
+    object-fit: cover;
   }
 
-  &__info{
+  &__info{        
+    width: 100%;
+    max-width: 102px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
   }
 
   &__name{
@@ -22,7 +30,7 @@
     line-height: 22px;
   }
 
-  &__price{
+  &__price{    
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -52,10 +60,12 @@
     align-items: center;
     justify-content: center;
 
+    color: var(--color-black);
     font-weight: bolder;
     border: none;
     outline: none;
     background-color: transparent;
+    font-size: 12px;
     cursor: pointer;
   }
 }

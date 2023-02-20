@@ -1,0 +1,133 @@
+.ShoppingCartPage {
+	margin-top: 80px;
+	text-align: center;
+	padding-bottom: var(--footer-height);
+
+	&_content {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		margin-top: 35px;
+		gap: 20px;
+	}
+	&_col {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+	&_items {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 20px;
+		z-index: -1;
+	}
+	&_items2 {		
+		padding-bottom: 4px;
+		border-bottom: 1px solid #d8d8d8;
+	}
+
+	&_totals {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&_title {
+		text-align: center;
+		font-weight: 500;
+		font-size: 33px;
+		line-height: 43px;
+		color: #000000;
+	}
+	&_title2 {
+		font-weight: 400;
+		font-size: 26px;
+		line-height: 25px;
+		color: #000000;
+	}
+	&_title3 {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 27px;
+		color: #000000;
+	}
+	&_parrafo {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 27px;
+		color: #707070;
+	}
+	&_parrafo2 {
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 21px;
+		color: #000000;
+	}
+	&_title4 {
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 27px;
+		color: #000000;
+	}
+}
+
+.btn-black {
+	width: 80%;
+	height: 40px;
+	background: #000000;
+	border: 1px solid #000000;
+	border-radius: 4px;
+	text-transform: uppercase;
+	margin-left: 8%;
+
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 21px;
+	color: #ffffff;
+	cursor: pointer;
+}
+.btn-black:hover {
+	color: #000;
+	background: white;
+}
+.btn-white {
+	width: 140px;
+	height: 40px;
+	background-color: white;
+	border: 1px solid #000000;
+	text-transform: uppercase;
+	border-radius: 4px;
+
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 21px;
+	color: #000000;
+	cursor: pointer;
+}
+.btn-white:hover {
+	background: #000000;
+	color: #ffffff;
+}
+
+@media screen and (max-width: 880px) {
+	.ShoppingCartPage {
+		margin-top: 70px;
+		text-align: center;
+		&_content {					
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			grid-template-rows: repeat(2, min-content);
+			margin-top: 15px;
+			gap: 20px;
+		}
+		&_cart {
+			grid-row: 2/3;
+		}
+		&_totals {
+			margin-top: 10px;
+			grid-row: 1/2;
+			margin-bottom: 20px;
+		}
+	}
+}

@@ -1,13 +1,41 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { productsApi } from "./apis";
-import { cartSlice, categoriesSlice } from "./slices";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import {
+	persistReducer,
+	persistStore,
+	FLUSH,
+	REHYDRATE,
+	PAUSE,
+	PERSIST,
+	PURGE,
+	REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { storeApi } from "./apis";
+import { cartSlice, categoriesSlice, userSlice } from "./slices";
+
+const rootReducer = combineReducers({
+	cart: cartSlice.reducer,
+	categories: categoriesSlice.reducer,
+	user: userSlice.reducer,
+	[storeApi.reducerPath]: storeApi.reducer,
+});
+
+const persistConfig = {
+	key: "root",
+	storage,
+	blacklist: ["storeApi"], // Avoid persisting productsApi
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-	reducer: {
-		cart: cartSlice.reducer,
-		categories: categoriesSlice.reducer,
-		[productsApi.reducerPath]: productsApi.reducer,
-	},
+	reducer: persistedReducer,
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(productsApi.middleware),
+		getDefaultMiddleware({
+			serializableCheck: {
+				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+			},
+		}).concat(storeApi.middleware),
 });
+
+export const persistor = persistStore(store);

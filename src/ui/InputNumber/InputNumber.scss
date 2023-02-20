@@ -30,7 +30,7 @@
     color: var(--color-dark-gray);
   }
 
-  button{
+  &__btn{
     width: 15px;
     height: 15px;
     display: flex;
@@ -46,7 +46,6 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    position: relative;
   }
 
   @media screen and (max-width: 420px){

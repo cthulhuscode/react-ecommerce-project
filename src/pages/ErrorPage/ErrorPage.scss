@@ -1,0 +1,40 @@
+.error {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: calc(100vh - var(--footer-height));
+
+	&__title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 33px;
+        line-height: 43px;
+        text-transform: uppercase;        
+	}
+
+    &__subtitle{
+        margin-top: 24px;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 26px;      
+        text-align: center;  
+        color: var(--color-dark-gray);
+    }
+
+    &__btn{
+        margin-top: 64px;
+        
+        width: 187px;
+        max-width: 187px;
+        height: 53px;
+
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 21px;    
+        text-transform: uppercase;    
+    }
+}

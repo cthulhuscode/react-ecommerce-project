@@ -1,30 +1,51 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage, ProductsPage, ProductPage } from "./pages";
-import { Navbar } from "./layout/Navbar/Navbar";
-import "./App.scss"
-import { Cart } from "./components";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import {
+	HomePage,
+	ProductsPage,
+	ProductPage,
+	ErrorPage,
+	AuthPage,
+	ShoppingCartPage,
+	CheckoutPage,
+} from "./pages";
+import { Navbar, Footer } from "./layout";
+import { Cart, PrivateRoute } from "./components";
+import "./App.scss";
+
 const App = () => {
+	const showCart = useSelector((state) => state.cart.show);
 
-	const showCart = useSelector(state => state.cart.show);
+	return (
+		<div className="app">
+			<HashRouter>
+				{/* Shows in all pages */}
+				<Navbar />
+				{showCart && <Cart />}
+				<Routes>
+					{/* Most specific routes first */}
+					<Route path="/checkout"
+						element={
+							<PrivateRoute>
+								<CheckoutPage />
+							</PrivateRoute>
+						}
+					/>
+					<Route path="/products/:id" element={<ProductPage />} />
+					<Route path="/auth" element={<AuthPage />} />
+					<Route path="/products" element={<ProductsPage />} />
+					<Route path="/cart" element={<ShoppingCartPage />} />
+					<Route path="/" element={<HomePage />} />
 
-	return <div className="app">
-		<BrowserRouter>
-			{/* Shows in all pages */}
-			<Navbar />	
-			{showCart && <Cart />}
-				
-			<Routes>
-				<Route path="/" element={<HomePage />} />			
-				<Route path="/products" element={<ProductsPage />} />			
-				<Route path="/products/:id" element={<ProductPage />} />	
+					{/* This must always be at the end */}
+					<Route path="*" element={<ErrorPage />} />
+				</Routes>
 
-				{/* This must always be at the end */}
-				<Route path="*" element={<h1>Not found</h1>}/>
-			</Routes>
-		</BrowserRouter>
-	</div>;
+				<Footer />
+			</HashRouter>
+		</div>
+	);
 };
 
 export default App;
