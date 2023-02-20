@@ -1,7 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { clearCart } from "../../store/slices";
+
 import "./CheckoutPage.scss";
-import { useSelector } from "react-redux";
 
 export const CheckoutPage = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const products = useSelector((state) => state.cart.products);
 	const cartProducts = Object.values(products);
 	const subtotal = cartProducts.reduce(
@@ -9,7 +14,13 @@ export const CheckoutPage = () => {
 		0
 	);
 	const total = subtotal + 20;
-	console.log(products.name);
+
+	const handlePlaceOrderClick = () => {
+		alert("Order made with success. Thanks");
+		dispatch(clearCart());
+		navigate("/", { replace: true });
+	}
+
 	return (
 		<div className="checkout">
 			<h2 className="checkout-title">Checkout</h2>
@@ -71,7 +82,7 @@ export const CheckoutPage = () => {
 							<br />
 							<input type="radio" id="paypal" name="check" />
 							<label className="checkout-label">PayPal </label>
-							<button className="btn-black">Place order</button>
+							<button className="btn-black" onClick={handlePlaceOrderClick}>Place order</button>
 						</form>
 					</div>
 				</div>

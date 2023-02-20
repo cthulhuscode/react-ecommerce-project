@@ -1,9 +1,10 @@
 import "./ShoppingCartPage.scss";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CartProductCard } from "../../components/Cart/CartProductCard";
 
 export const ShoppingCartPage = () => {
+	const navigate = useNavigate();
 	const products = useSelector((state) => state.cart.products);
 	const cartProducts = Object.values(products);
 	const subtotal = cartProducts.reduce(
@@ -11,6 +12,11 @@ export const ShoppingCartPage = () => {
 		0
 	);
 	const total = subtotal + 20;
+
+	const handleCheckoutClick = () => {
+		navigate("/checkout");
+	}
+
 	return (
 		<div className="ShoppingCartPage">
 			<h2 className="ShoppingCartPage_title">Shopping Cart</h2>
@@ -43,9 +49,9 @@ export const ShoppingCartPage = () => {
 						<h4 className="ShoppingCartPage_title4">Total</h4>
 						<p className="ShoppingCartPage_parrafo2">${total}</p>
 					</div>
-					<Link to="/shopping-cart/checkout">
-						<button className="btn-black">Proceed to checkout</button>
-					</Link>
+
+					<button className="btn-black" onClick={handleCheckoutClick}>Proceed to checkout</button>
+
 				</div>
 			</div>
 		</div>

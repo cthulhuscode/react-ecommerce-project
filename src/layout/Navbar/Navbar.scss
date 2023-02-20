@@ -8,6 +8,7 @@
 
   border-bottom: 1px solid var(--color-light-gray);
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   right: 0;
@@ -16,6 +17,8 @@
   &__logo{
     width: 158px;
     height: 40px;
+    margin-bottom: 4px;
+    cursor: pointer;
 
     @media screen and (max-width: 680px){
       width: 99px;

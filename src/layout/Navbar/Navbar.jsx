@@ -1,16 +1,17 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toggleCart } from "../../store/slices";
+import { selectCategory, toggleCart } from "../../store/slices";
 import { images } from "../../constants/images";
-import "./Navbar.scss";
 import { AccountMenu } from "./AccountMenu/AccountMenu";
 import { MobileMenu } from "./MobileMenu/MobileMenu";
+import "./Navbar.scss";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const productsCount = useSelector(state => state.cart.productsCount);
   const showCart = useSelector(state => state.cart.show);
   const [showAccountMenu, setShowAccountMenu] = useState(false);
@@ -44,12 +45,15 @@ export const Navbar = () => {
     setShowAccountMenu(prevState => !prevState);
   }
 
+  const handleLogoClick = () => {
+    dispatch(selectCategory("All"));
+    navigate("/");
+  }
+
   return (
     <nav className="navbar">
 
-      <Link to="/">
-        <motion.img whileTap={{ scale: 0.99 }} className="navbar__logo" src={images.logo} alt="Shoppe" />
-      </Link>
+      <motion.img whileTap={{ scale: 0.99 }} className="navbar__logo" src={images.logo} alt="Shoppe" onClick={handleLogoClick} />
 
       {/* Desktop menu */}
       <ul className="navbar-list">
