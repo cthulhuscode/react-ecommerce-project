@@ -14,14 +14,16 @@
 		display: flex;
 		flex-direction: column;
 		gap: 4px;
-		height: 600px;
 		align-items: start;
 	}
 	&-orderItems {
 		margin-top: 4px;
 		width: 580px;
-		height: 846px;
 		background: #efefef;
+		padding: 30px 40px 60px 40px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 	}
 	&-col {
 		display: flex;
@@ -37,6 +39,7 @@
 		line-height: 27px;
 		color: #707070;
 		width: 80%;
+		outline: none;
 	}
 	&-title {
 		font-weight: 500;
@@ -63,5 +66,30 @@
 		font-size: 26px;
 		line-height: 25px;
 		color: #000000;
+	}
+	&-subtitle2 {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 27px;
+		color: #707070;
+	}
+	&-itemsTitle {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 27px;
+		text-transform: uppercase;
+		color: #000000;
+	}
+	&-orderCol {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px solid #d8d8d8;
+	}
+	&_contentcart {
+		display: flex;
+		justify-content: space-between;
+	}
+	&-form input {
+		margin-bottom: 15px;
 	}
 }
