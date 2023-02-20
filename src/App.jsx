@@ -11,7 +11,7 @@ import {
 	CheckoutPage,
 } from "./pages";
 import { Navbar, Footer } from "./layout";
-import { Cart } from "./components";
+import { Cart, PrivateRoute } from "./components";
 import "./App.scss";
 
 const App = () => {
@@ -24,12 +24,19 @@ const App = () => {
 				<Navbar />
 				{showCart && <Cart />}
 				<Routes>
-					<Route path="/auth/:auth" element={<AuthPage />} />
+					{/* Most specific routes first */}
+					<Route path="/checkout"
+						element={
+							<PrivateRoute>
+								<CheckoutPage />
+							</PrivateRoute>
+						}
+					/>
 					<Route path="/products/:id" element={<ProductPage />} />
+					<Route path="/auth" element={<AuthPage />} />
 					<Route path="/products" element={<ProductsPage />} />
+					<Route path="/cart" element={<ShoppingCartPage />} />
 					<Route path="/" element={<HomePage />} />
-					<Route path="/shopping-cart" element={<ShoppingCartPage />} />
-					<Route path="/shopping-cart/checkout" element={<CheckoutPage />} />
 
 					{/* This must always be at the end */}
 					<Route path="*" element={<ErrorPage />} />

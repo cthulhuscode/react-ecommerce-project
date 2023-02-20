@@ -1,5 +1,5 @@
 // import { images } from "../../constants/images";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -9,10 +9,16 @@ import { CartProductCard } from "./CartProductCard";
 import "./Cart.scss";
 
 export const Cart = () => {
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const cart = useSelector((state) => state.cart);
 	const { products, productsCount, cartPrice } = cart;
 	const cartProducts = Object.values(products);
+
+	const handleViewCartClick = () => {
+		dispatch(toggleCart());
+		navigate("/cart")
+	}
 
 	return (
 		<motion.div
@@ -46,17 +52,15 @@ export const Cart = () => {
 					<span className="cart__price">$ {cartPrice}</span>
 				</div>
 
-				<Link to="/shopping-cart">
-					<Button
-						variant={"white"}
-						handleClick={() => {
-							console.log("View cart");
-						}}
-						classes={"cart__btn"}
-					>
-						View Cart
-					</Button>
-				</Link>
+
+				<Button
+					variant={"white"}
+					handleClick={handleViewCartClick}
+					classes={"cart__btn"}
+				>
+					View Cart
+				</Button>
+
 			</div>
 
 			<motion.button
