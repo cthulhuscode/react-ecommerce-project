@@ -7,8 +7,9 @@ import { toggleCart, clearCart } from "../../store/slices";
 import { Button } from "../../ui";
 import { CartProductCard } from "./CartProductCard";
 import "./Cart.scss";
+import { forwardRef } from "react";
 
-export const Cart = () => {
+export const Cart = forwardRef((props, ref) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const cart = useSelector((state) => state.cart);
@@ -22,6 +23,7 @@ export const Cart = () => {
 
 	return (
 		<motion.div
+			ref={ref}
 			className="cart"
 			initial={{ width: 0 }}
 			animate={{ width: 300 }}
@@ -73,4 +75,6 @@ export const Cart = () => {
 			</motion.button>
 		</motion.div>
 	);
-};
+});
+
+Cart.displayName = "Cart";

@@ -1,9 +1,11 @@
+import { forwardRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import { logoutAuthUser } from "../../../store/slices";
 import "./AccountMenu.scss";
 
-export const AccountMenu = () => {
+export const AccountMenu = forwardRef((props, ref) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authUser = useSelector(state => state.user.authUser);
@@ -18,7 +20,7 @@ export const AccountMenu = () => {
   }
 
   return (
-    <div className="account">
+    <div className="account" ref={ref}>
       <div className="account__circle"></div>
       <h3 className="account__signed">
         {authUser?.name ? 'Signed in as ' : 'Not signed in'}
@@ -36,4 +38,10 @@ export const AccountMenu = () => {
       >{authUser ? 'Log Out' : 'Log In'}</button>
     </div>
   );
-};
+});
+
+AccountMenu.displayName = "AccountMenu";
+
+// AccountMenu.propTypes = {
+//   innerRef: PropTypes.any
+// }

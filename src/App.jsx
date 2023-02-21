@@ -1,5 +1,4 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 import {
 	HomePage,
@@ -11,19 +10,16 @@ import {
 	CheckoutPage,
 } from "./pages";
 import { Navbar, Footer } from "./layout";
-import { Cart, PrivateRoute } from "./components";
+import { PrivateRoute } from "./components";
 import "./App.scss";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
-	const showCart = useSelector((state) => state.cart.show);
-
 	return (
 		<div className="app">
 			<HashRouter>
 				{/* Shows in all pages */}
 				<Navbar />
-				{showCart && <Cart />}
 				<Routes>
 					{/* Most specific routes first */}
 					<Route path="/checkout"
@@ -42,7 +38,6 @@ const App = () => {
 					{/* This must always be at the end */}
 					<Route path="*" element={<ErrorPage />} />
 				</Routes>
-
 				<Footer />
 			</HashRouter>
 
