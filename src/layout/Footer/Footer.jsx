@@ -18,7 +18,7 @@ export const Footer = () => {
 			<div className="footer-copyright">
 				<h4 className="footer-title">
 					{" "}
-					<span>&copy; Touch of Tech.</span> Terms of use <span>and</span> privacy
+					<span>&copy; Shoppe.</span> Terms of use <span>and</span> privacy
 					policy.
 				</h4>
 				<div className="footer-networks">
