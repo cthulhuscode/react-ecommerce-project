@@ -96,13 +96,13 @@ export const Navbar = () => {
           <img className="navbar-list__icon" src={images.line} alt="line" />          
         </li> */}
         {/* <li className="navbar-list__item">
-          <img className="navbar-list__icon" src={images.lupa} alt="buscar" />
+          <img className="navbar-list__icon" src={images.lupa} alt="magnifying glass" />
         </li> */}
         <li className="navbar-list__item navbar-list__item-cart" onClick={handleCartClick}>
           <motion.img
             className="navbar-list__icon"
             src={images.cart}
-            alt="carrito de compra"
+            alt="shopping cart"
             whileTap={{ scale: 0.8 }}
           />
           <span className="navbar-list__counter">{productsCount}</span>
@@ -113,7 +113,7 @@ export const Navbar = () => {
           <motion.img
             className="navbar-list__icon"
             src={images.account}
-            alt="cuenta"
+            alt="account"
             whileTap={{ scale: 0.8 }}
             onClick={handleAccountClick}
           />
@@ -134,7 +134,7 @@ export const Navbar = () => {
             <motion.img
               className="navbar-menu__icon"
               src={images.cart}
-              alt="carrito de compra"
+              alt="shopping cart"
               whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.8 }}
             />
