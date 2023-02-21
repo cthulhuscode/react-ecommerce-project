@@ -48,8 +48,9 @@ export const AuthPage = () => {
             setPassword("");
             navigate(state.from || "/", { replace: true })
         }
-        else
+        else {
             alert("Ocurred an error while trying to access. Please try again later.")
+        }
     };
 
     useEffect(() => {
