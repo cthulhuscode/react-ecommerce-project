@@ -1,3 +1,4 @@
+import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../../store/slices";
@@ -15,8 +16,21 @@ export const CheckoutPage = () => {
 	);
 	const total = subtotal + 20;
 
-	const handlePlaceOrderClick = () => {
-		alert("Order made with success. Thanks");
+	const fakePayment = () => {
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				resolve(true);
+			}, 4000);
+		})
+	};
+
+	const handlePlaceOrderClick = async () => {
+		const pay = fakePayment();
+		await toast.promise(pay, {
+			loading: "Processing payment",
+			success: "Purchase successfully completed!",
+			error: "Error while making the purchase"
+		})
 		dispatch(clearCart());
 		navigate("/", { replace: true });
 	}

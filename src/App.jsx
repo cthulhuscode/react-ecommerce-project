@@ -13,6 +13,7 @@ import {
 import { Navbar, Footer } from "./layout";
 import { Cart, PrivateRoute } from "./components";
 import "./App.scss";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
 	const showCart = useSelector((state) => state.cart.show);
@@ -44,6 +45,9 @@ const App = () => {
 
 				<Footer />
 			</HashRouter>
+
+			{/* Notifications */}
+			<Toaster />
 		</div>
 	);
 };
