@@ -23,7 +23,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
 	key: "root",
 	storage,
-	blacklist: ["storeApi"], // Avoid persisting productsApi
+	blacklist: ["storeApi"], // Avoid persisting storeApi
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
