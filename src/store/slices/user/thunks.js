@@ -1,9 +1,16 @@
+import { toast } from "react-hot-toast";
 import { storeApi } from "../../../api/storeApi";
 import { setAuthUser, setToken } from "./userSlice";
 
 export const logInUser = (user) => {
 	return async (dispatch, getState) => {
-		const { data } = await storeApi.post("/auth/login", user);
+		const loginPromise = storeApi.post("/auth/login", user);
+
+		const { data } = await toast.promise(loginPromise, {
+			loading: "Signing up",
+			success: "Signed up successfully!",
+			error: "Error while signing up",
+		});
 
 		if (data.success) {
 			/* Get token */
@@ -34,7 +41,13 @@ export const logInUser = (user) => {
 
 export const registerUser = (user) => {
 	return async (dispatch, getState) => {
-		const { data } = await storeApi.post("/auth/", user);
+		const registerPromise = storeApi.post("/auth/", user);
+
+		const { data } = await toast.promise(registerPromise, {
+			loading: "Creating account",
+			success: "Account created successfully!",
+			error: "Error while creating the account",
+		});
 
 		if (data.success) {
 			/* Get token */
