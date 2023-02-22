@@ -87,19 +87,19 @@ jobs:
       #     command: env:set
       #     args: VITE_API_URL ${{ secrets.VITE_API_URL }}
       #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      - uses: netlify/actions/cli@master
+
+      - name: "Set API URL env var" 
+        uses: netlify/actions/cli@master
       - run: netlify env:set VITE_API_URL ${{ secrets.VITE_API_URL }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}          
         with:          
-          args: deploy --dir=dist --prod VITE_API_URL=${{ secrets.VITE_API_URL }}          
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID", "VITE_API_URL"]'
+          args: deploy --dir=dist --prod          
+          
       
