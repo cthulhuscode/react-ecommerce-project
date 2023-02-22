@@ -7,7 +7,7 @@ export const Categories = () => {
 	const { data, isLoading } = useGetProductsQuery();
 	const dispatch = useDispatch();
 
-	const uniqueTitles = new Set();	
+	const uniqueTitles = new Set();
 
 	const handleClick = (e) => {
 		const category = e.currentTarget.name;
@@ -20,7 +20,7 @@ export const Categories = () => {
 				<a className="category-item" key="all-items-xd" name="All" onClick={handleClick}>
 					<h4 className="category_tittle-item">All</h4>
 				</a>
-				{!isLoading &&
+				{!isLoading && data &&
 					data.data.map((product) => {
 						if (uniqueTitles.has(product.title)) {
 							// Si el título ya se agregó antes, no se muestra en la pantalla

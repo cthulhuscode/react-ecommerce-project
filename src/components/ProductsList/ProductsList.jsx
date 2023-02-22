@@ -9,21 +9,21 @@ export const ProductsList = () => {
   const { data, isLoading } = useGetProductsQuery();
   const selectedCategory = useSelector(state => state.categories.selected || "All");
   const filteredProducts = useMemo(() => {
-    if(!isLoading && selectedCategory !== "All")  
+    if (!isLoading && selectedCategory !== "All" && data)
       return data.data.filter(
         product => product.title === selectedCategory
       )
-    else if(!isLoading)
+    else if (!isLoading && data)
       return data.data
-    }, [selectedCategory, isLoading]
+  }, [selectedCategory, isLoading]
   )
 
   return (
     <div className="products-list">
-      { !isLoading && filteredProducts 
+      {!isLoading && filteredProducts
         ? filteredProducts.map(
           product => <ProductCard product={product} key={product.item_id} />
-        ) 
+        )
         : <p>Loading...</p>
       }
     </div>
