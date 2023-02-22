@@ -89,6 +89,10 @@ jobs:
       #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       - uses: netlify/actions/cli@master
       - run: netlify env:set VITE_API_URL ${{ secrets.VITE_API_URL }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - uses: netlify/actions/cli@master
         env:
