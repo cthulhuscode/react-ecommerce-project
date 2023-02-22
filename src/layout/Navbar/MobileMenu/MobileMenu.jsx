@@ -42,7 +42,7 @@ export const MobileMenu = ({ handleMobileMenuClick }) => {
               </li> */}
 
         <li className="menu__item">
-          <Link className="menu__item-link" to="/checkout">Cart</Link>
+          <Link className="menu__item-link" to="/cart">Cart</Link>
         </li>
 
         <hr className="menu__separator" />
