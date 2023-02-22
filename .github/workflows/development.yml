@@ -94,6 +94,6 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
         with:          
-          args: deploy --dir=dist --prod VITE_API_URL="$VITE_API_URL"          
+          args: deploy --dir=dist --prod VITE_API_URL=${{ secrets.VITE_API_URL }}          
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID", "VITE_API_URL"]'
       
