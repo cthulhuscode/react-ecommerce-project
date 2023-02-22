@@ -70,22 +70,22 @@ jobs:
       - name: Testing
         run: npm test        
 
-  deploy:
-    needs: [testing]
-    runs-on: ubuntu-22.04  
-    steps:    
-      - name: Deploy to Netlify
-        if: ${{ github.event.pull_request.merged == true }}        
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: dist     
-      - uses: netlify/actions/cli@master
-        if: ${{ github.event.pull_request.merged == true }}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        with:
-          args: deploy --dir=dist --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+  # deploy:
+  #   needs: [testing]
+  #   runs-on: ubuntu-22.04  
+  #   steps:    
+  #     - name: Deploy to Netlify
+  #       if: ${{ github.event.pull_request.merged == true }}        
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: dist
+  #         path: dist     
+  #     - uses: netlify/actions/cli@master
+  #       if: ${{ github.event.pull_request.merged == true }}
+  #       env:
+  #         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  #         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  #       with:
+  #         args: deploy --dir=dist --prod
+  #         secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
