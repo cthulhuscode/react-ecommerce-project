@@ -15,10 +15,6 @@ import "./App.scss";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
-	console.log(import.meta.env.VITE_API_URL);
-	console.log(import.meta.env.MODE);
-	console.log(process.env.VITE_API_URL);
-
 	return (
 		<div className="app">
 			<HashRouter>
