@@ -107,7 +107,6 @@ export const Navbar = () => {
           />
           <span className="navbar-list__counter">{productsCount}</span>
         </li>
-        {showCart && <Cart ref={cartRef} />}
 
         <li className="navbar-list__item navbar-list__item-account">
           <motion.img
@@ -123,6 +122,8 @@ export const Navbar = () => {
 
         </li>
       </ul>
+
+      {showCart && <Cart ref={cartRef} />}
 
       {/* Mobile menu */}
       <div className="navbar-menu">

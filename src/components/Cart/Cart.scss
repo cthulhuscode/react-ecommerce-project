@@ -5,7 +5,7 @@ $sides-p: 20px;
   z-index: 99;
   top: 70px;
   right: 0;
-
+  
   width: 300px;
   height: calc(100vh - 70px);
   background-color: var(--color-white);
@@ -118,9 +118,9 @@ $sides-p: 20px;
     border-top: none;
   }
 
-  @media screen and (max-width: 350px){
+  @media screen and (max-width: 350px){    
+    width: 100% !important;
     right: 0;
     left: 0;
-    width: 100%;
   }
 }
