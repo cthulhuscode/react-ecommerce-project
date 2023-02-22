@@ -70,20 +70,26 @@ jobs:
       - name: Testing
         run: npm test      
 
-  deploy:
-    needs: [build]
-    runs-on: ubuntu-22.04  
-    steps:    
-      - name: Deploy to Netlify        
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: dist     
-      - uses: netlify/actions/cli@master
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
-        with:
-          args: deploy --dir=dist --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+  # deploy:
+  #   needs: [build]
+  #   runs-on: ubuntu-22.04  
+  #   steps:    
+  #     - name: Deploy to Netlify        
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: dist
+  #         path: dist     
+           
+  #     - run: netlify env:set VITE_API_URL ${{ secrets.VITE_API_URL }}
+  #       env:
+  #         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  #         NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
 
+  #     - uses: netlify/actions/cli@master
+  #       env:
+  #         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  #         NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}          
+  #       with:          
+  #         args: deploy --dir=dist --prod          
+          
+      

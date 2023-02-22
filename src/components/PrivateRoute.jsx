@@ -6,8 +6,6 @@ export const PrivateRoute = (props) => {
   const location = useLocation();
   const authUser = useSelector(state => state.user.authUser);
 
-  console.log(location)
-
   if (!authUser) {
     return <Navigate to="/auth" state={{ from: location.pathname }} />
   }

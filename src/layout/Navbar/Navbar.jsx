@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -8,14 +8,24 @@ import { images } from "../../constants/images";
 import { AccountMenu } from "./AccountMenu/AccountMenu";
 import { MobileMenu } from "./MobileMenu/MobileMenu";
 import "./Navbar.scss";
+import { useOutsideClick } from "../../hooks";
+import { Cart } from "../../components";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const productsCount = useSelector(state => state.cart.productsCount);
   const showCart = useSelector(state => state.cart.show);
-  const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showAccountMenu, setShowAccountMenu] = useState(false);
+
+  /* Account menu ref */
+  const accountMenuRef = useRef(null);
+  const accountOutsideClick = useOutsideClick(accountMenuRef);
+
+  /* Cart menu ref */
+  const cartRef = useRef(null);
+  const cartOutsideClick = useOutsideClick(cartRef);
 
   const handleMobileMenuClick = (e) => {
     // e.stopPropagation();
@@ -35,20 +45,36 @@ export const Navbar = () => {
     if (showMobileMenu)
       setShowMobileMenu(false);
 
-    dispatch(toggleCart());
+    if (!cartOutsideClick)
+      dispatch(toggleCart());
   }
 
   const handleAccountClick = () => {
     if (showCart)
       dispatch(toggleCart())
 
-    setShowAccountMenu(prevState => !prevState);
+    /* Only activate when is false, otherwise the
+      state goes false and then the action
+      changes it to true, which in the end
+      the menu never gets close
+    */
+    if (!accountOutsideClick)
+      setShowAccountMenu(prevState => !prevState);
   }
 
   const handleLogoClick = () => {
     dispatch(selectCategory("All"));
     navigate("/");
   }
+
+  useEffect(() => {
+    setShowAccountMenu(false);
+  }, [accountOutsideClick])
+
+  useEffect(() => {
+    if (showCart)
+      dispatch(toggleCart())
+  }, [cartOutsideClick])
 
   return (
     <nav className="navbar">
@@ -70,29 +96,30 @@ export const Navbar = () => {
           <img className="navbar-list__icon" src={images.line} alt="line" />          
         </li> */}
         {/* <li className="navbar-list__item">
-          <img className="navbar-list__icon" src={images.lupa} alt="buscar" />
+          <img className="navbar-list__icon" src={images.lupa} alt="magnifying glass" />
         </li> */}
         <li className="navbar-list__item navbar-list__item-cart" onClick={handleCartClick}>
           <motion.img
             className="navbar-list__icon"
             src={images.cart}
-            alt="carrito de compra"
+            alt="shopping cart"
             whileTap={{ scale: 0.8 }}
           />
           <span className="navbar-list__counter">{productsCount}</span>
         </li>
+        {showCart && <Cart ref={cartRef} />}
 
         <li className="navbar-list__item navbar-list__item-account">
           <motion.img
             className="navbar-list__icon"
             src={images.account}
-            alt="cuenta"
+            alt="account"
             whileTap={{ scale: 0.8 }}
             onClick={handleAccountClick}
           />
 
           {/* Account Menu */}
-          {showAccountMenu && <AccountMenu />}
+          {showAccountMenu && <AccountMenu ref={accountMenuRef} />}
 
         </li>
       </ul>
@@ -107,7 +134,7 @@ export const Navbar = () => {
             <motion.img
               className="navbar-menu__icon"
               src={images.cart}
-              alt="carrito de compra"
+              alt="shopping cart"
               whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.8 }}
             />
