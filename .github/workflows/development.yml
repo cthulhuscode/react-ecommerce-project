@@ -79,17 +79,7 @@ jobs:
         with:
           name: dist
           path: dist     
-
-      # Set environment variable
-      # - name: Set environment variable
-      #   uses: netlify/actions/cli@master
-      #   with:
-      #     command: env:set
-      #     args: VITE_API_URL ${{ secrets.VITE_API_URL }}
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
-      - name: "Set API URL env var" 
-        uses: netlify/actions/cli@master
+           
       - run: netlify env:set VITE_API_URL ${{ secrets.VITE_API_URL }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
