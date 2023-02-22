@@ -80,10 +80,10 @@ jobs:
           name: dist
           path: dist     
            
-      - run: netlify env:set VITE_API_URL ${{ secrets.VITE_API_URL }}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
+      # - run: netlify env:set VITE_API_URL ${{ secrets.VITE_API_URL }}
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
 
       - uses: netlify/actions/cli@master
         env:
