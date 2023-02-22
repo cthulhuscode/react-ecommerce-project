@@ -87,6 +87,7 @@ jobs:
       #     command: env:set
       #     args: VITE_API_URL ${{ secrets.VITE_API_URL }}
       #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - run: "echo ${{ secrets.VITE_API_URL }}"
 
       - uses: netlify/actions/cli@master
         env:
